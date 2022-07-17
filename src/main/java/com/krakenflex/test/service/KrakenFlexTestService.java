@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package com.krakenflex.test.service;
 
-import com.example.demo.exceptions.KrakenFetchException;
-import com.example.demo.util.JsonUtil;
+import com.krakenflex.test.exceptions.KrakenFetchException;
+import com.krakenflex.test.util.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.apache.http.HttpEntity;
@@ -26,6 +26,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Handles KrakenFlex test service REST API.
+ */
 @Service
 public class KrakenFlexTestService {
 

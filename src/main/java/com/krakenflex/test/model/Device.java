@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.krakenflex.test.model;
 
 public record Device(String id, String name) {
 }

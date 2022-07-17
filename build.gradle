@@ -6,7 +6,7 @@ plugins {
 }
 
 application {
-	mainClassName = "com.example.demo.Application"
+	mainClassName = "com.krakenflex.test.Application"
 }
 
 group = 'com.example'

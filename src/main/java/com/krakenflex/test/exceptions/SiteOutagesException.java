@@ -1,4 +1,4 @@
-package com.example.demo.exceptions;
+package com.krakenflex.test.exceptions;
 
 public class SiteOutagesException extends RuntimeException{
 

@@ -1,12 +1,15 @@
-package com.example.demo.service;
+package com.krakenflex.test.service;
 
-import com.example.demo.model.Outage;
+import com.krakenflex.test.model.Outage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Handles KrakenFlex test service's "outages" endpoint.
+ */
 @Service
 public class OutageService {
 

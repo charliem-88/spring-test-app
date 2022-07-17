@@ -1,10 +1,13 @@
-package com.example.demo.service;
+package com.krakenflex.test.service;
 
-import com.example.demo.model.SiteInfo;
+import com.krakenflex.test.model.SiteInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Handles KrakenFlex test service's "site-info" endpoint.
+ */
 @Service
 public class SiteService {
 

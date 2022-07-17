@@ -1,11 +1,11 @@
-package com.example.demo.service;
+package com.krakenflex.test.service;
 
-import com.example.demo.exceptions.SiteOutagesException;
-import com.example.demo.model.Device;
-import com.example.demo.model.Outage;
-import com.example.demo.model.EnhancedOutage;
-import com.example.demo.model.SiteInfo;
-import com.example.demo.util.JsonUtil;
+import com.krakenflex.test.exceptions.SiteOutagesException;
+import com.krakenflex.test.model.Device;
+import com.krakenflex.test.model.Outage;
+import com.krakenflex.test.model.EnhancedOutage;
+import com.krakenflex.test.model.SiteInfo;
+import com.krakenflex.test.util.JsonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Handles KrakenFlex test service's "site-outages" endpoint.
+ */
 @Service
 public class SiteOutagesService {
-
     public static final String SITE_OUTAGES = "site-outages/";
     private final OutageService outageService;
     private final SiteService siteService;

@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.krakenflex.test.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,10 +17,8 @@ class OutageServiceTest {
 
     @Test
     void getOutages_willReturn_listOfOutages() {
-        //when
         var actual = testSubject.getOutages();
 
-        // then
         assertThat(actual.size()).isGreaterThan(0);
     }
 }
