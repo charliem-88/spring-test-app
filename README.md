@@ -1,32 +1,37 @@
 
+Create a file inn src/main/resources called api.key, containing a valid API key 
 
+To run the project, you can either open the project in an IDE like IntelliJ and hit run, or run 
 
-API key - add file name with api key
+```
+./gradlew run
+```
 
+which will install all dependencies (except Java) and run the application.
 
+Java 17 is required and can be installed via https://sdkman.io/.
 
-There are three endpoints in this file:
+I've created for endpoints, which can be ran using the curl commands:
+   1. `curl localhost:8080/api/outages`  which can be used to return a full list of outages 
+   2. `curl localhost:8080/api/site-info/{id}` which will return site information for give ID
+   3. `curl localhost:8080/api/site-outages/{id}` returns a list of outages associated with the site, that have a begin date on or after 2022-01-01
+   4. `curl localhost:8080/api/upload-outages/{id}` uploads a list of outages for a given site, that have a begin date on or after 2022-01-01
 
-1. `GET /outages` which returns all outages in our system
-2. `GET /site-info/{siteId}` which returns specific information about a site
-3. `POST /site-outages/{siteId}` which expects outages for a specific site to be posted to it
+Endpoint #4 should complete the task, however a 400 error is returned from the Kraken endpoint, indicating the payload is invalid.
 
-Your task is to write a small program that:
+After considerable de-bugging efforts I haven't been able to ascertain why the 400 is returned. 
+The filtering in its current form can be found in SiteOutagesService. 
 
-~~1. Retrieves all outages from the `GET /outages` endpoint~~
-~~2. Retrieves information from the `GET /site-info/{siteId}` endpoint for the site with the ID `norwich-pear-tree`~~
-~~3. Filters out any outages that began before `2022-01-01T00:00:00.000Z` or don't have an ID that is in the list of~~
-   ~~devices in the site information~~
-~~4. For the remaining outages, it should attach the display name of the device in the site information to each appropriate outage~~
-~~5. Sends this list of outages to `POST /site-outages/{siteId}` for the site with the ID `norwich-pear-tree`~~
-
-
-
-Improvements:
-
-getOutagesForSite currently returns outages from the future eg:
+I tried a few approaches, as I perhaps had misunderstood the challenge. I filtered out all dates prior to the date provided. 
+There is an outage for norwich-pear-tree that occurred at the given time, which I tried filtering out:
+```
    {
-      "id": "75e96db4-bba2-4035-8f43-df2cbd3da859",
-      "begin": "2023-05-11T14:35:15.359Z",
-      "end": "2023-12-27T11:19:19.393Z"
+      "id": "111183e7-fb90-436b-9951-63392b36bdd2",
+      "name": "Battery 1",
+      "begin": "2022-01-01T00:00:00Z",
+      "end": "2022-09-15T19:45:10.341Z"
    }
+```
+
+I also tried ordering by name and date, and removing outages where the end date had not passed. 
+

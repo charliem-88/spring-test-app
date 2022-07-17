@@ -1,14 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.exceptions.SiteFetchFailure;
 import com.example.demo.model.SiteInfo;
-import com.example.demo.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 @Service
 public class SiteService {

@@ -51,28 +51,16 @@ public class SiteOutagesService {
                 .stream()
                 .collect(Collectors.toMap(Device::id, device -> device));
 
-        // outage with start date before and end date after givenDate
-        // AND
-        //  outage with start date after
-
-
-        List<Outage> onOrAfterDate = outages.stream()
+        return outages.stream()
                 .filter(outage -> (
-//                        outage.begin().isEqual(newerThan) ||
-//                        outage.begin().isAfter(newerThan)) ||
-                        outage.end().isAfter(newerThan) &&
-                        outage.end().isAfter(newerThan))).toList();
-
-
-        List<Outage> newerThanAndMatchesDeviceIds = onOrAfterDate.stream().filter(outage -> siteDevices.containsKey(outage.id())).toList();
-
-        List<EnhancedOutage> thisShoudBeRight = newerThanAndMatchesDeviceIds.stream()
+                        outage.begin().isEqual(newerThan) ||
+                        outage.begin().isAfter(newerThan)) &&
+                        siteDevices.containsKey(outage.id()))
                 .map(outage -> new EnhancedOutage(
                         outage.id(),
                         siteDevices.get(outage.id()).name(),
                         outage.begin(),
                         outage.end()))
                 .collect(Collectors.toList());
-        return thisShoudBeRight;
     }
 }
