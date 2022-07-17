@@ -29,6 +29,11 @@ I've created four endpoints, which can be run using the curl commands:
 
 Endpoint #4 _should_ complete the task, however a 400 error is returned from the Kraken endpoint, indicating the payload is invalid.
 
+## UI
+There is an optional web based UI available here:  
+
+https://github.com/charlcharl/react-test-app
+
 ## Discussion
 After considerable debugging efforts I haven't been able to ascertain why the 400 is returned. 
 The filtering in its current form can be found in `SiteOutagesService`.
