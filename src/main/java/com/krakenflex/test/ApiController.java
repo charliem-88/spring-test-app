@@ -7,10 +7,7 @@ import com.krakenflex.test.service.OutageService;
 import com.krakenflex.test.service.SiteOutagesService;
 import com.krakenflex.test.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -20,6 +17,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class ApiController {
 
     public static final ZonedDateTime OUTAGE_DATETIME_CUTOFF = ZonedDateTime.parse("2022-01-01T00:00:00.000Z");
